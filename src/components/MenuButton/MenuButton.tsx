@@ -5,7 +5,7 @@ import styles from './MenuButton.module.css';
 interface MenuButtonProps {
   icon: React.ReactNode;
   text: string;
-  to: string; 
+  to: string;
   className?: string;
 }
 
@@ -18,7 +18,7 @@ export const MenuButton: React.FC<MenuButtonProps> = ({
   return (
     <NavLink
       to={to}
-      className={`${styles.button} ${className}`}
+      className={({ isActive }) => `${styles.button} ${className} ${isActive ? styles.active : ''}`}
       aria-label={text}
     >
       {icon}
