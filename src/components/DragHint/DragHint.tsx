@@ -4,7 +4,7 @@ import {type HighlightStats} from "../../store/csvAnalyticsStore"
 
 interface DragHintProps {
   isLoading: boolean;
-  stats: HighlightStats;
+   stats: HighlightStats | null;
 }
 
 export const DragHint: React.FC<DragHintProps> = ({ isLoading, stats }) => {
