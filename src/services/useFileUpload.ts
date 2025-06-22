@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { useCsvAnalyticsStore } from "../store/csvAnalyticsStore";
 import { uploadFile } from "../api/serverApi";
-import { useHistoryStore } from "../store/historyStore"; 
+import { useHistoryStore } from "../store/historyStore";
 
 export const useFileUpload = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const { isLoading, stats, setIsLoading, setStats, setError, reset } =
-    useCsvAnalyticsStore();
-
+  const { isLoading, setIsLoading, setError, reset } = useCsvAnalyticsStore();
   const addItem = useHistoryStore((state) => state.addItem);
 
   const handleFilesSelected = (files: File[]) => {
@@ -23,6 +21,7 @@ export const useFileUpload = () => {
     setIsLoading(true);
 
     let isSuccess = false;
+    let parsedData = null;
 
     try {
       const reader = await uploadFile(selectedFile);
@@ -40,8 +39,7 @@ export const useFileUpload = () => {
         for (const line of lines) {
           if (line.trim()) {
             try {
-              const parsedData = JSON.parse(line);
-              setStats(parsedData);
+              parsedData = JSON.parse(line);
               isSuccess = true;
             } catch (err) {
               console.error("Ошибка парсинга данных:", err);
@@ -59,13 +57,16 @@ export const useFileUpload = () => {
     } finally {
       setIsLoading(false);
 
+      // Используем parsedData, которое не зависит от глобального стейта
       const resultItem = {
         id: Date.now().toString(),
         fileName: selectedFile?.name || "",
         dateChecked: new Date().toLocaleDateString("ru-RU"),
         success: isSuccess,
-        stat: stats!,
+        stat: parsedData,
       };
+
+      console.log(resultItem);
       addItem(resultItem);
     }
   };
@@ -73,7 +74,6 @@ export const useFileUpload = () => {
   return {
     selectedFile,
     isLoading,
-    stats,
     handleFilesSelected,
     handleSubmit,
   };

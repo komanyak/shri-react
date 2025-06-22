@@ -6,7 +6,7 @@ export interface FileCheckResult {
   fileName: string;
   dateChecked: string;
   success: boolean;
-  stat: HighlightStats;  
+  stat: HighlightStats | null;  
 }
 
 export const createStorage = (key: string, storage = localStorage) => ({
