@@ -38,7 +38,7 @@
 1. Клонируйте репозиторий:
 
     ```bash
-    git clone <ссылка на репозиторий>
+    git clone https://github.com/komanyak/shri-react.git
     cd shri-react
     ```
 
