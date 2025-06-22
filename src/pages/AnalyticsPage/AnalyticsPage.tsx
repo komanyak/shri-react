@@ -6,7 +6,7 @@ import styles from "./AnalyticsPage.module.css";
 
 export const AnalyticsPage: React.FC = () => {
   const stats = useCsvAnalyticsStore((state) => state.stats);
-  const error = useCsvAnalyticsStore((state) => state.error);
+  // const error = useCsvAnalyticsStore((state) => state.error);
 
   return (
     <div>
@@ -19,7 +19,7 @@ export const AnalyticsPage: React.FC = () => {
             хайлайты
           </span>
         )}
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        
 
         {stats && <HighlightsList />}
       </div>

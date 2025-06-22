@@ -4,7 +4,7 @@ import {type HighlightStats} from "../../store/csvAnalyticsStore"
 
 interface DragHintProps {
   isLoading: boolean;
-  stats: HighlightStats;
+   stats: HighlightStats | null;
 }
 
 export const DragHint: React.FC<DragHintProps> = ({ isLoading, stats }) => {
@@ -14,7 +14,7 @@ export const DragHint: React.FC<DragHintProps> = ({ isLoading, stats }) => {
         ? "Идёт парсинг файла..."
         : stats
         ? "Готово!"
-        : "Файл загружен!"}
+        : "или перетащите сюда"}
     </p>
   );
 };
