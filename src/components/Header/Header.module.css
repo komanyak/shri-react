@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.name {
+  background: var(--color-primary);
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: var(--font-size-m);
+  line-height: 90%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  padding: 6px;
+
+}

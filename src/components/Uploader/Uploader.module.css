@@ -1,0 +1,12 @@
+.uploader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.description {
+  font-size: var(--font-size-m);
+}
+
+.fileInfo{}

@@ -1,0 +1,24 @@
+.highlightItem {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-m);
+  padding: 20px;
+  box-sizing: border-box; /* Учитываем padding в размере элемента */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  width: 100%; /* Занимает всю доступную ширину */
+}
+
+.highlightValue {
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+}
+
+.highlightDescription {
+  font-weight: 400;
+  font-size: var(--font-size-s);
+  text-align: center;
+  margin-top: 10px;
+}

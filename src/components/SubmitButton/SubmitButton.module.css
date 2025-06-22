@@ -1,0 +1,9 @@
+.submitButton {
+  background-color: #2AE881;
+  color: var(--color-text);
+}
+
+.submitButton:disabled {
+  color: #787878;
+  background-color: #C0C0C0;
+}
