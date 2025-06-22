@@ -1,0 +1,14 @@
+.historyPage {
+  padding: 20px;
+}
+
+.clearButton {
+  color: #FFFFFF;
+  cursor: pointer;
+  background-color: #201B10;
+
+}
+
+.clearButton:hover {
+  background-color: #201b10a0;
+}

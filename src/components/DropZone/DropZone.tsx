@@ -1,5 +1,8 @@
 import React, { useCallback, useState } from "react";
 import styles from "./DropZone.module.css";
+import { useCsvAnalyticsStore } from "../../store/csvAnalyticsStore";
+import { FileUploadButton } from "../FileUploadButton/FileUploadButton";
+import { DragHint } from "../DragHint/DragHint";
 
 interface DropZoneProps {
   onFilesSelected: (files: File[]) => void;
@@ -7,6 +10,7 @@ interface DropZoneProps {
 
 export const DropZone: React.FC<DropZoneProps> = ({ onFilesSelected }) => {
   const [isDragging, setIsDragging] = useState(false);
+  const { isLoading, stats } = useCsvAnalyticsStore();
 
   const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -27,14 +31,6 @@ export const DropZone: React.FC<DropZoneProps> = ({ onFilesSelected }) => {
     [onFilesSelected]
   );
 
-  const handleFileInput = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const files = e.target.files ? Array.from(e.target.files) : [];
-      onFilesSelected(files);
-    },
-    [onFilesSelected]
-  );
-
   return (
     <div
       className={`${styles.dropZone} ${isDragging ? styles.dragging : ""}`}
@@ -43,17 +39,12 @@ export const DropZone: React.FC<DropZoneProps> = ({ onFilesSelected }) => {
       onDrop={handleDrop}
     >
       <div className={styles.uploadContainer}>
-        <input
-          type="file"
-          id="file-upload"
-          className={styles.fileInput}
-          accept=".csv"
-          onChange={handleFileInput}
+        <FileUploadButton
+          isLoading={isLoading}
+          stats={stats}
+          onFilesSelected={onFilesSelected}
         />
-        <label htmlFor="file-upload" className={styles.uploadButton}>
-          Загрузить файл
-        </label>
-        <p className={styles.dragHint}>или перетащите его сюда</p>
+        <DragHint isLoading={isLoading} stats={stats} />
       </div>
     </div>
   );

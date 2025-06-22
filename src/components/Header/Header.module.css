@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 20px;    
   width: 100%;
 }
 
@@ -13,13 +13,14 @@
 }
 
 .name {
-  background: var(--color-primary);
-  color: var(--color-text);
+  background: я;
+  color: #201B10;
   font-weight: 500;
-  font-size: var(--font-size-m);
+  font-size: 30px;
   line-height: 90%;
   letter-spacing: 0%;
   text-transform: uppercase;
   padding: 6px;
 
 }
+

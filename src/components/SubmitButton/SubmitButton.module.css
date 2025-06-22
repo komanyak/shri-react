@@ -1,6 +1,6 @@
 .submitButton {
   background-color: #2AE881;
-  color: var(--color-text);
+  color: #201B10;
 }
 
 .submitButton:disabled {

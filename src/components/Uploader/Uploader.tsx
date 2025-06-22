@@ -1,35 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Uploader.module.css";
 import { DropZone } from "../DropZone/DropZone";
 import { SubmitButton } from "../SubmitButton/SubmitButton";
+import { useFileUpload } from "../../services/useFileUpload";
 
 export const Uploader: React.FC = () => {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-
-  const handleFilesSelected = (files: File[]) => {
-    if (files.length > 0) {
-      setSelectedFile(files[0]);
-    }
-  };
-
-  const handleSubmit = () => {
-    if (selectedFile) {
-      console.log("Отправка файла:", selectedFile.name);
-      // Здесь будет логика отправки на сервер
-    }
-  };
+  const {
+    selectedFile,
+    isLoading,
+    stats,
+    handleFilesSelected,
+    handleSubmit,
+  } = useFileUpload();
 
   return (
-    <>
-      <div className={styles.uploader}>
-        <span className={styles.description}>
-          Загрузите <b>csv</b> файл и получите <b>полную информацию</b> о нём за сверхнизкое
-          время
-        </span>
-        <DropZone onFilesSelected={handleFilesSelected} />
+    <div className={styles.uploader}>
+      <span className={styles.description}>
+        Загрузите <b>csv</b> файл и получите <b>полную информацию</b> о нём за
+        сверхнизкое время
+      </span>
+      <DropZone onFilesSelected={handleFilesSelected} />
 
-        <SubmitButton onClick={handleSubmit} disabled={!selectedFile} />
-      </div>
-    </>
+      {selectedFile && !stats && (
+        <SubmitButton
+          onClick={handleSubmit}
+          disabled={!selectedFile || isLoading}
+        />
+      )}
+    </div>
   );
 };

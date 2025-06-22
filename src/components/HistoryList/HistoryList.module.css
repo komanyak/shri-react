@@ -1,0 +1,16 @@
+.historyList {
+  margin-top: 20px;
+}
+
+.historyList p {
+  font-size: 16px;
+  color: #333;
+}
+
+.historyList .emptyMessage {
+  color: #888;
+}
+
+.historyList > div {
+  margin-bottom: 10px; 
+}

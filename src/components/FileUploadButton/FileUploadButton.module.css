@@ -1,29 +1,4 @@
-.dropZone {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #EACDFF;
-  height: 240px;
-  border-radius: 10px;
-  margin: 1rem 0;
-  transition: all 0.2s ease;
-  font-size: 30px;
-}
-
-.dragging {
-  background-color: #D4FAE6;
-}
-
-.uploadContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  width: auto;
-}
-
-/* .fileInput {
+.fileInput {
   display: none;
 }
 
@@ -49,9 +24,9 @@
   padding: 0 16px;
   overflow: hidden;
   flex-shrink: 0;
-} */
+}
 
-/* .uploadButton:hover {
+.uploadButton:hover {
   background-color: #f0f0f0;
 }
 
@@ -65,9 +40,9 @@
   text-overflow: ellipsis;
   text-align: center;
   width: 100%;
-} */
+}
 
-/* .resetButton {
+.resetButton {
   background-color: #201B10;
   border: none;
   border-radius: 10px;
@@ -78,14 +53,9 @@
 
 .resetButton:hover {
   background-color: #413f3a;
-} */
+}
 
-/* .dragHint {
-  color: #201B10;
-  margin: 0;
-} */
-
-/* .loader {
+.loader {
   width: 20px;
   height: 20px;
   border: 3px solid rgba(255, 255, 255, 0.3);
@@ -98,4 +68,4 @@
   to {
     transform: rotate(360deg);
   }
-} */
+}

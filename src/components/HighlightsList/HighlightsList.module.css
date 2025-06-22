@@ -1,6 +1,7 @@
 .highlightsList {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Два столбца */
+  grid-auto-flow: column;
+  grid-template-rows: repeat(4, 1fr);
   gap: 20px;
   margin-top: 20px;
 }

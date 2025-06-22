@@ -16,9 +16,6 @@ export const Menu: React.FC = () => {
   );
 };
 
-// ... (иконки остаются без изменений)
-
-// Иконки для кнопок
 const UploadIcon: React.FC = () => (
   <svg
     width="35"

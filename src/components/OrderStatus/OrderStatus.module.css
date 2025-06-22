@@ -1,0 +1,18 @@
+.activeStatus {
+  display: flex;
+  align-items: center;
+  color: #201b10;
+  gap: 10px;
+}
+
+.failStatus {
+  display: flex;
+  align-items: center;
+  color: #aaa;
+  gap: 10px;
+}
+
+span {
+  font-weight: 500;
+  font-size: 16px;
+}
